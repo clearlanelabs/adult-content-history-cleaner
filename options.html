@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Adult Content History Cleaner — Options</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 640px;
+        margin: 30px auto;
+        padding: 0 16px;
+        color: #1b1b1f;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      section {
+        margin-bottom: 28px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e2e2e2;
+      }
+      h2 {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+      p.help {
+        font-size: 13px;
+        color: #666;
+        margin-top: 0;
+      }
+      textarea {
+        width: 100%;
+        min-height: 100px;
+        font-family: monospace;
+        font-size: 13px;
+        box-sizing: border-box;
+        padding: 8px;
+      }
+      button {
+        padding: 8px 14px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: #f5f5f5;
+        cursor: pointer;
+        font-size: 13px;
+        margin-top: 8px;
+        margin-right: 8px;
+      }
+      button:hover {
+        background: #ececec;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 20px;
+        font-size: 13px;
+      }
+      .stat-grid div.label {
+        color: #666;
+      }
+      #saveStatus,
+      #updateStatus,
+      #sweepStatus {
+        font-size: 12px;
+        color: #777;
+        margin-top: 6px;
+        min-height: 14px;
+      }
+      .switch-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Adult Content History Cleaner</h1>
+
+    <section>
+      <div class="switch-row">
+        <input type="checkbox" id="enabledToggle" />
+        <label for="enabledToggle">Enabled</label>
+      </div>
+      <p class="help">When enabled, any visit to a matched domain is deleted from Chrome history within moments of the page loading, and a background sweep runs hourly to catch anything else (e.g. entries synced from another device).</p>
+    </section>
+
+    <section>
+      <h2>Status</h2>
+      <div class="stat-grid">
+        <div class="label">Blocked domains loaded</div><div id="domainCount">-</div>
+        <div class="label">Blocklist source</div><div id="listSource">-</div>
+        <div class="label">Blocklist last updated</div><div id="listUpdatedAt">-</div>
+        <div class="label">Total history entries deleted</div><div id="totalDeleted">-</div>
+        <div class="label">Last full sweep</div><div id="lastSweepAt">-</div>
+      </div>
+      <button id="sweepNow">Run full sweep now</button>
+      <button id="updateList">Update blocklist from source</button>
+      <div id="sweepStatus"></div>
+      <div id="updateStatus"></div>
+    </section>
+
+    <section>
+      <h2>Custom domains to always block</h2>
+      <p class="help">One domain per line, e.g. <code>example.com</code>. Subdomains of these are blocked automatically.</p>
+      <textarea id="customDomains" placeholder="example.com"></textarea>
+    </section>
+
+    <section style="border-bottom: none;">
+      <h2>Whitelist (never delete these, even if matched)</h2>
+      <p class="help">One domain per line. Takes priority over both the default list and your custom list.</p>
+      <textarea id="whitelistDomains" placeholder="example.com"></textarea>
+      <div>
+        <button id="save">Save changes</button>
+        <span id="saveStatus"></span>
+      </div>
+    </section>
+
+    <script src="options.js"></script>
+  </body>
+</html>

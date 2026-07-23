@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Adult Content History Cleaner</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        width: 260px;
+        margin: 0;
+        padding: 14px;
+        color: #1b1b1f;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 10px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+      .stat {
+        color: #555;
+      }
+      button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 6px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: #f5f5f5;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      button:hover {
+        background: #ececec;
+      }
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #555;
+      }
+      .switch-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      #status {
+        font-size: 11px;
+        color: #777;
+        margin-top: 6px;
+        min-height: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Adult Content History Cleaner</h1>
+    <div class="switch-row">
+      <span>Enabled</span>
+      <input type="checkbox" id="enabledToggle" />
+    </div>
+    <div class="row"><span class="stat">Blocked domains loaded</span><span id="domainCount">-</span></div>
+    <div class="row"><span class="stat">Total entries deleted</span><span id="totalDeleted">-</span></div>
+    <div class="row"><span class="stat">Last sweep</span><span id="lastSweep">-</span></div>
+    <button id="sweepNow">Clean history now</button>
+    <div id="status"></div>
+    <a href="options.html" target="_blank">Options / custom domains</a>
+    <script src="popup.js"></script>
+  </body>
+</html>
