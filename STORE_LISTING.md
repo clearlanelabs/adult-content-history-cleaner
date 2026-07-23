@@ -1,5 +1,9 @@
 # Chrome Web Store listing — copy/paste reference
 
+## Publisher / contact
+- Publisher: ClearLane Labs
+- Contact / support email: clearlanelabs@outlook.com (set and verify on the dashboard's Settings page — required before publishing)
+
 ## Item name
 Adult Content History Cleaner
 
@@ -55,7 +59,12 @@ All other categories (personally identifiable info, health info, financial info,
 Certify: "I do not sell or transfer user data to third parties outside of the approved use cases" and "I do not use or transfer user data for purposes unrelated to the item's single purpose" — both apply here.
 
 ## Privacy policy URL
-Host `PRIVACY_POLICY.md` from this folder somewhere public (GitHub Pages, a public Gist, etc.) and paste that URL into the dashboard's privacy policy field. The Store will not accept a policy that isn't reachable at a public URL.
+```
+https://github.com/clearlanelabs/adult-content-history-cleaner/blob/main/PRIVACY_POLICY.md
+```
+
+## Remote code declaration
+"No, I am not using remote code." The blocklist-update fetch pulls plain-text data, never executed as code.
 
 ## Permission justifications (dashboard will prompt for each)
 
@@ -64,9 +73,7 @@ Host `PRIVACY_POLICY.md` from this folder somewhere public (GitHub Pages, a publ
 - **alarms**: "Required to schedule an hourly background sweep of history as a backstop, in case an entry is added outside of normal browsing (e.g. synced from another device)."
 - **host permission (raw.githubusercontent.com/StevenBlack/hosts/\*)**: "Used only when the user explicitly clicks 'Update blocklist from source' in the options page, to fetch the latest version of the public, open-source adult-domain blocklist this extension relies on. No user data is included in this request."
 
-## Screenshot suggestions
-Take 1–2 screenshots (1280×800) of:
-1. The Options page showing the status panel and domain count.
-2. The popup showing the enabled toggle and "Clean history now" button.
-
-Avoid including any real visited-site history or personal data in screenshots.
+## Screenshots
+Store-ready (1280×800, 24-bit PNG, no alpha) versions are in `screenshots-store/`:
+- `screenshot-1.png`
+- `screenshot-2.png`
